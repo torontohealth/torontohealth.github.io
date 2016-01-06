@@ -2,8 +2,13 @@
 <!--	Hyperspace by | @n33co-->
 <html>
 	<head>
-		<title>Fastur</title>
-		<meta charset="utf-8" />
+	<script>
+	var domainname = window.location.host;
+	document.title = domainname;
+	var domainwithoutperiod= domainname.replace(/\./g,' ');
+	localStorage.setItem('domain', domainwithoutperiod);
+	var host = domainname;    if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
+	</script><meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<!--[if lte IE 8]><script src="fastur.ca/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="https://fastur.ca/css/main.css" />
