@@ -14,14 +14,19 @@ var url = 'https://api.import.io/store/connector/1acd3693-1106-4985-9699-c191a21
 var url2 = 'https://api.import.io/store/connector/56e72a1e-9ef7-439e-b5ad-ea16f78d5fd9/_query?&_apikey=7b4c104faa5a4a3399f38ef4c663f949c76e045d901de9892ee614a97afdb223dde0bd3f47db54662dcae9679071c3feee11a602998ff66702f39fff3a977d8504683fdc36418074a929318a50b1df83';
 
 
-$.getJSON(url, function (data) {
-    $.getJSON(url2, function (data2) {
-     
- var data = data.concat(data2);
+
+$.when(
+    $.getJSON(url),
+    $.getJSON(url2)
+).done(function(result1, result2) {
+var data = result1.concat(result2);
  
-  console.log(data.results);
+  console.log(data);
+});
   
- var validation_messages = data.results; 
+console.log(data.results);
+
+var validation_messages = data.results; 
  var key, obj, prop, owns = Object.prototype.hasOwnProperty; 
  for (key in validation_messages ) {    
  if (owns.call(validation_messages, key)){     
@@ -44,9 +49,15 @@ $.getJSON(url, function (data) {
  }
   $('#main').append("<article class='thumb'><a href='" + itemimage + "' class='image'><img src='" + itemimage + "' alt='' /></a><h2>" + itemalt + "</h2><p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>	</article>");
  }
+ 
+ 
+ </script>
+ 
+ 
+ 
+$.getJSON(url, function (data) {
+    $.getJSON(url2, function (data2) {
+  
 
     });    
 });
-
-
- </script>
