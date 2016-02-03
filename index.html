@@ -21,14 +21,42 @@ function health() {var uid = localStorage.getItem('uid');var ref = new Firebase(
  if (owns.call(obj, prop)){   
  if (/image/i.test(prop)){
 // console.log(obj[prop]);
-  var itemalt = obj[prop];
 
  var datatest = obj[prop];
   if (/http/i.test(datatest)){
   var itemimage = (datatest);
   }
  }              
- else if (/title/i.test(prop)){
+ else if (/value/i.test(prop)){
+    var itemalt = obj[prop];
+ }  
+ }
+ }
+ }
+  $('#main').append("<article class='thumb'><a href='" + itemimage + "' class='image'><img src='" + itemimage + "' alt='' /></a><h2>" + itemalt + "</h2><p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>	</article>");
+ }
+ });
+ </script>
+ <script>
+ $.getJSON('https://api.import.io/store/connector/56e72a1e-9ef7-439e-b5ad-ea16f78d5fd9/_query?&_apikey=7b4c104faa5a4a3399f38ef4c663f949c76e045d901de9892ee614a97afdb223dde0bd3f47db54662dcae9679071c3feee11a602998ff66702f39fff3a977d8504683fdc36418074a929318a50b1df83', function(data){ 
+  console.log(data.results);
+ var validation_messages = data.results; 
+ var key, obj, prop, owns = Object.prototype.hasOwnProperty; 
+ for (key in validation_messages ) {    
+ if (owns.call(validation_messages, key)){     
+ obj = validation_messages[key]; 
+ for (prop in obj ) {      
+ if (owns.call(obj, prop)){   
+ if (/image/i.test(prop)){
+// console.log(obj[prop]);
+
+ var datatest = obj[prop];
+  if (/http/i.test(datatest)){
+  var itemimage = (datatest);
+  }
+ }              
+ else if (/value/i.test(prop)){
+    var itemalt = obj[prop];
  }  
  }
  }
