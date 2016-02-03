@@ -24,7 +24,7 @@ $.when(
 ).done(function(result1, result2, result3, result4) {
 var data = result1.concat(result2, result3, result4);
 console.log(data);
-console.log(data.results);
+console.log(data.object);
 var validation_messages = data.results; 
  var key, obj, prop, owns = Object.prototype.hasOwnProperty; 
  for (key in validation_messages ) {    
