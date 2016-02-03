@@ -17,9 +17,11 @@ var url2 = 'https://api.import.io/store/connector/56e72a1e-9ef7-439e-b5ad-ea16f7
 
 $.when(
     $.getJSON(url),
-    $.getJSON(url2)
-).done(function(result1, result2) {
-var data = result1.concat(result2);
+    $.getJSON(url2),
+      $.getJSON(url3),
+    $.getJSON(url4)
+).done(function(result1, result2, result3, result4) {
+var data = result1.concat(result2, result3, result4);
 console.log(data);
 
 var validation_messages = data.results; 
