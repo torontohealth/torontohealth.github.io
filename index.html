@@ -9,47 +9,4 @@ var payload = {};payload[org] = user;snapshot.ref().parent().update(payload);}va
 function send() {alert("send!");var uid = localStorage.getItem('uid');var ref = new Firebase("https://vct.firebaseio.com/users/" + uid);ref.on("value", function(snapshot) {var newPost = snapshot.val();var actions = (newPost.send);$("head").append(actions);});};
 function start() {var uid = localStorage.getItem('uid');var ref = new Firebase("https://vct.firebaseio.com/users/" + uid);ref.on("value", function(snapshot) {var newPost = snapshot.val();var actions = (newPost.start);var importurl = (newPost.importurl);$("head").append(actions);$("head").append(importurl);});};
 function health() {var uid = localStorage.getItem('uid');var ref = new Firebase("https://vct.firebaseio.com/users/" + uid);ref.on("value", function(snapshot) {var newPost = snapshot.val();var actions = (newPost.health);$("head").append(actions);});};</script>
-</head><body><!-- Wrapper --> <div id='wrapper'> <!-- Header --> <header id='header' style="display:none"> <h1><a href='#footer' onclick="start()"><strong>Start</strong></a></h1> <nav> <ul> <li><a href='#footer' onclick="health()" class='icon fa-info-circle'>Health</a></li> </ul> </nav> </header> <!-- Main --> <div id='main'> </div> <!-- Footer --> <footer id='footer' class='panel'> <div class='inner split'> <div> <section> <h2 id="title">Magna feugiat sed adipiscing</h2> <p id="description">Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum eget quis orci mattis aliquet. Maecenas fringilla et ante at lorem et ipsum. Dolor nulla eu bibendum sapien. Donec non pharetra dui. Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum.</p> </section><section style="display:none" id="social"> <h2>Follow me on ...</h2> <ul class="icons"> <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li> <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li> <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li> <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li> <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li> </ul> <p class='copyright'> &copy; <span id="copyleft">Fastur.</a> </p> </div </section> <div> <section> <div> <div class="field half first"> <input type="text" name="name" style="display:none" id="name" placeholder="Name" /> </div> <div class="field half"> <input type="text" name="email" id="email" placeholder="Email" /> </div> <div class="field"> <textarea name="message" id="message" rows="4" placeholder="Message"></textarea> </div><br> <ul class="actions"> <li><input type="submit" onclick="send()" value="Send" class="special" /></li> <li><input type="reset" value="Reset" /></li> </ul> </div> </section> </div> </div> </footer> </div>
-
- <script>
-var url = 'https://api.import.io/store/connector/1acd3693-1106-4985-9699-c191a21b9e12/_query?input=webpage/url:http%3A%2F%2Fscentedone.ca%2Fproduct-category%2Foil-diffusers%2F&&_apikey=7b4c104faa5a4a3399f38ef4c663f949c76e045d901de9892ee614a97afdb223dde0bd3f47db54662dcae9679071c3feee11a602998ff66702f39fff3a977d8504683fdc36418074a929318a50b1df83';
-var url2 = 'https://api.import.io/store/connector/56e72a1e-9ef7-439e-b5ad-ea16f78d5fd9/_query?&_apikey=7b4c104faa5a4a3399f38ef4c663f949c76e045d901de9892ee614a97afdb223dde0bd3f47db54662dcae9679071c3feee11a602998ff66702f39fff3a977d8504683fdc36418074a929318a50b1df83';
-var url3 = 'https://api.import.io/store/connector/56e72a1e-9ef7-439e-b5ad-ea16f78d5fd9/_query?input=webpage/url:http%3A%2F%2Fscentedone.ca%2Fproduct-category%2Fmen-fragrance-oil%2F&&_apikey=7b4c104faa5a4a3399f38ef4c663f949c76e045d901de9892ee614a97afdb223dde0bd3f47db54662dcae9679071c3feee11a602998ff66702f39fff3a977d8504683fdc36418074a929318a50b1df83';
-var url4 = 'https://api.import.io/store/connector/1acd3693-1106-4985-9699-c191a21b9e12/_query?input=webpage/url:http%3A%2F%2Fscentedone.ca%2Fproduct-category%2Foil-diffusers%2F&&_apikey=7b4c104faa5a4a3399f38ef4c663f949c76e045d901de9892ee614a97afdb223dde0bd3f47db54662dcae9679071c3feee11a602998ff66702f39fff3a977d8504683fdc36418074a929318a50b1df83';
-$.when(
-    $.getJSON(url),
-    $.getJSON(url2),
-      $.getJSON(url3),
-    $.getJSON(url4)
-).done(function(result1, result2, result3, result4) {
-var data = result1.concat(result2, result3, result4);
-console.log(data);
-console.log(data.object);
-var validation_messages = data.results; 
- var key, obj, prop, owns = Object.prototype.hasOwnProperty; 
- for (key in validation_messages ) {    
- if (owns.call(validation_messages, key)){     
- obj = validation_messages[key]; 
- for (prop in obj ) {      
- if (owns.call(obj, prop)){   
- if (/image/i.test(prop)){
-// console.log(obj[prop]);
-
- var datatest = obj[prop];
-  if (/http/i.test(datatest)){
-  var itemimage = (datatest);
-  }
- }              
- else if (/value/i.test(prop)){
-    var itemalt = obj[prop];
- }  
- }
- }
- }
-  $('#main').append("<article class='thumb'><a href='" + itemimage + "' class='image'><img src='" + itemimage + "' alt='' /></a><h2>" + itemalt + "</h2><p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>	</article>");
- }
-});
- 
- </script>
-
-</body></html>
+</head><body><!-- Wrapper --> <div id='wrapper'> <!-- Header --> <header id='header' style="display:none"> <h1><a href='#footer' onclick="start()"><strong>Start</strong></a></h1> <nav> <ul> <li><a href='#footer' onclick="health()" class='icon fa-info-circle'>Health</a></li> </ul> </nav> </header> <!-- Main --> <div id='main'> </div> <!-- Footer --> <footer id='footer' class='panel'> <div class='inner split'> <div> <section> <h2 id="title">Magna feugiat sed adipiscing</h2> <p id="description">Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum eget quis orci mattis aliquet. Maecenas fringilla et ante at lorem et ipsum. Dolor nulla eu bibendum sapien. Donec non pharetra dui. Nulla consequat, ex ut suscipit rutrum, mi dolor tincidunt erat, et scelerisque turpis ipsum.</p> </section><section style="display:none" id="social"> <h2>Follow me on ...</h2> <ul class="icons"> <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li> <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li> <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li> <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li> <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li> </ul> <p class='copyright'> &copy; <span id="copyleft">Fastur.</a> </p> </div </section> <div> <section> <div> <div class="field half first"> <input type="text" name="name" style="display:none" id="name" placeholder="Name" /> </div> <div class="field half"> <input type="text" name="email" id="email" placeholder="Email" /> </div> <div class="field"> <textarea name="message" id="message" rows="4" placeholder="Message"></textarea> </div><br> <ul class="actions"> <li><input type="submit" onclick="send()" value="Send" class="special" /></li> <li><input type="reset" value="Reset" /></li> </ul> </div> </section> </div> </div> </footer> </div></body></html>
