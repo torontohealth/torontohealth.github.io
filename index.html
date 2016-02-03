@@ -20,11 +20,7 @@ $.when(
     $.getJSON(url2)
 ).done(function(result1, result2) {
 var data = result1.concat(result2);
-console.log(data.results);
-
-});
-  
-
+console.log(data);
 
 var validation_messages = data.results; 
  var key, obj, prop, owns = Object.prototype.hasOwnProperty; 
@@ -49,15 +45,9 @@ var validation_messages = data.results;
  }
   $('#main').append("<article class='thumb'><a href='" + itemimage + "' class='image'><img src='" + itemimage + "' alt='' /></a><h2>" + itemalt + "</h2><p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>	</article>");
  }
- 
+});
  
  </script>
+ </head> 
  
  
- 
-$.getJSON(url, function (data) {
-    $.getJSON(url2, function (data2) {
-  
-
-    });    
-});
